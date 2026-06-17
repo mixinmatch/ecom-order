@@ -1,0 +1,7 @@
+﻿namespace Orders.Models
+{
+    public enum OrderStatus
+    {
+        UNKNOWN, PLACED, CONFIRMED, PROCESSING, AWAITING_SHIPMENT, SHIPPED, IN_TRANSIT, OUT_DELIVERY, DELIVERED, CANCELLED
+    }
+}
