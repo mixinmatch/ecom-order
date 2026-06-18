@@ -24,6 +24,6 @@ jobs:
           registryUrl: ecomreg-f8dtdyg3d9hyhjec.azurecr.io
           registryUsername: ${{ secrets.REGISTRY_USERNAME }}
           registryPassword: ${{ secrets.REGISTRY_PASSWORD }}
-          containerAppName: inventory-2
+          containerAppName: order-2
           resourceGroup: ecom
           imageToBuild: ecomreg-f8dtdyg3d9hyhjec.azurecr.io/order-2:${{ github.sha }}
