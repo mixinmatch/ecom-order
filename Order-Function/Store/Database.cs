@@ -20,7 +20,7 @@ namespace Orders.Store
         {            
             await using var conn = _dataSource.OpenConnection();
             await using var cmd = new NpgsqlCommand("""               
-                INSERT INTO ORDERS 
+                INSERT INTO orders.ORDERS 
                 (id, merchantId, itemId, qty, orderStatus, notes)
                 VALUES
                 (@id, @merchantId, @itemId, @qty, @orderStatus, @notes)                
@@ -44,7 +44,7 @@ namespace Orders.Store
         {
             await using var conn = _dataSource.OpenConnection();
             using var cmd = new NpgsqlCommand("""               
-                SELECT * FROM ORDERS
+                SELECT * FROM orders.ORDERS
                 WHERE ORDERS.id = @orderId
                 """, conn)
             {
