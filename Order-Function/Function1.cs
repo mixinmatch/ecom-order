@@ -59,6 +59,7 @@ public class Function1
         ob.ItemId(order.itemId);
         ob.Qty(order.qty);
         ob.Cost(order.cost);
+        ob.OrderStatus(OrderStatus.CONFIRMED);
 
         Order o = ob.Build();
         await _db.AddOrder(o);

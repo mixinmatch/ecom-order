@@ -1,21 +1,36 @@
-﻿using System.Numerics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Numerics;
 
 namespace Orders.Models
 {
-    // Who made the order, what is the order, how much it cost, the quantity
-    // who should be the receiving merchant? When was the order made? order status
+    [Table("ORDERS", Schema = "orders")]
     public class Order
     {
+        [Key]
+        [Column("id", TypeName = "uuid")]
         public Guid id { get; set; }
+
+        [Column("merchantId", TypeName = "uuid")]
         public Guid merchantId { get; set; }
+
+        [Column("itemId", TypeName = "uuid")]
         public Guid itemId { get; set; }
+
+        [Column("qty", TypeName = "decimal")]
         public int qty { get; set; }
+
         public decimal cost { get; set; }
+
+        [Column("notes", TypeName = "varchar(256)")]
         public String? notes { get; set; }
         public DateTime orderTime { get; set; }
+
+        [Column("orderStatus", TypeName = "varchar(256)")]
         public OrderStatus orderStatus { get; set; }
         public String? orderStatusReason { get; set; }
 
+        public Order() { }
 
         public Order(OrderBuilder builder)
         {
